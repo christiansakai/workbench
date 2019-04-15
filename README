@@ -1,0 +1,31 @@
+Mount:
+
+```
+$ docker image build --no-cache -t workbench .
+```
+
+Run:
+
+```
+$ docker run -v /Users/christiansakai/Desktop/random:/root/projects -it workbench
+```
+
+TODO:
+- Mount volume to host's project directory
+- Mount volume to this repo's directory for self modification
+- Execute any command in host's shell
+  - See https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container
+  - https://unix.stackexchange.com/questions/369459/read-named-pipe-once-every-time-input-is-written/369465#369465
+  - Run host's process (i.e., NodeJS for specific folder)
+  - Run docker/docker compose at host
+    - This might be better, to install docker and configure docker and docker-compose to connect to host daemon
+- Configure TypeScript autocompletion
+  - Latest attempt was unsuccessful and buggy
+- Reduce image using multistage build 
+- Copy/yank from Neovim does not send to clipboard due to the nature of containers 
+  - Workarounds: 
+    - use Tmux and just yank from there. How does this work? Isn't Tmux also contained by Docker?
+    - Write a file and just open it with vim outside of Docker
+- Installing Rust from rustup still failing
+- Installing bat to replace cat still failing
+- Installing either n or nvm as Node version manager still fail

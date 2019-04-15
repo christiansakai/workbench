@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Christian Sakai
+  email = christianmsakai@gmail.com
+
+[core]
+  excludesfile = /root/.gitignore
+  ignorecase = false
+
+[alias]
+  log  = log --oneline --decoreate
+  slog = log --oneline --decorate --graph --all
+  plog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  glog = log -E -i --grep
+  ca = commit --amend
+  unstage = reset
+  destroy = checkout .
+  wipe = clean -fd
+  uncommit = reset --soft HEAD^
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+  required = true
+	process = git-lfs filter-process
